@@ -1,6 +1,5 @@
 command! ToSnippet call ToSnippet()
 function! ToSnippet() abort
-    let save_to_path = $HOME."/.config/nvim/neosnippet-snippet/"
     let file_path = expand("%")
     let file_extention = expand("%:e")
 
@@ -26,7 +25,7 @@ function! ToSnippet() abort
 	endif
     endfor
 
-    let file_name = save_to_path."python/".snippet_name.".snip"   
+    let file_name = save_directory."python/".snippet_name.".snip"   
     " write to file from snippet
     call writefile(snippet, file_name)
 endfunction
