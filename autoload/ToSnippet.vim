@@ -9,7 +9,23 @@ function! ToSnippet() abort
     let file_path = expand("%")
     let file_extention = expand("%:e")
     " read ../extentions.json
-    let l:extentions = json_decode(readfile(expand("../extentions.json")))
+    let json = {
+		\ "py": "python",
+		\ "rb": "ruby",
+		\ "js": "javascript",
+		\ "rs": "rust",
+		\ "go": "go",
+		\ "c": "c",
+		\ "cpp": "cpp",
+		\ "java": "java",
+		\ "php": "php",
+		\ "nim": "nim",
+		\ "ts": "typescript",
+		\ "cs": "csharp",
+		\ "swift": "swift",
+		\}
+	}
+    let l:extentions = json_decode(json)
     let l:extention = l:extentions[file_extention]
 
     let flag = 0
