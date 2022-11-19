@@ -5,8 +5,12 @@ function! ToSnippet() abort
 	else
 		let l:save_directory = expand('~/.vim/snippets')
 	endif
+
     let file_path = expand("%")
     let file_extention = expand("%:e")
+    " read ../extentions.json
+    let l:extentions = json_decode(readfile(expand("~/.vim/bundle/vim-tosnippet/extentions.json")))
+    let l:extention = l:extentions[file_extention]
 
     let flag = 0
     let lines = readfile(file_path)
@@ -30,7 +34,7 @@ function! ToSnippet() abort
 	endif
     endfor
 
-    let file_name = save_directory."python/".snippet_name.".snip"   
+    let file_name = save_directory.extention./".snippet_name.".snip"   
     " write to file from snippet
     call writefile(snippet, file_name)
 endfunction
