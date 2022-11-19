@@ -1,5 +1,9 @@
 command! ToSnippet call ToSnippet()
 function! ToSnippet() abort
+    if exists('g:tosnippet#save_directory')
+		let l:save_directory = g:tosnippet#save_directory
+	else
+		let l:save_directory = expand('~/.vim/snippets')
     let file_path = expand("%")
     let file_extention = expand("%:e")
 
