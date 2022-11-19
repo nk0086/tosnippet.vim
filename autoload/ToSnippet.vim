@@ -4,6 +4,7 @@ function! ToSnippet() abort
 		let l:save_directory = g:tosnippet#save_directory
 	else
 		let l:save_directory = expand('~/.vim/snippets')
+	endif
     let file_path = expand("%")
     let file_extention = expand("%:e")
 
