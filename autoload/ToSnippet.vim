@@ -9,7 +9,7 @@ function! ToSnippet() abort
     let file_path = expand("%")
     let file_extention = expand("%:e")
     " read ../extentions.json
-    let l:extentions = json_decode(readfile(expand("~/.vim/bundle/vim-tosnippet/extentions.json")))
+    let l:extentions = json_decode(readfile(expand("../extentions.json")))
     let l:extention = l:extentions[file_extention]
 
     let flag = 0
