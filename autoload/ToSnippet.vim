@@ -21,7 +21,7 @@ function! ToSnippet() abort
 		\ "nim": "nim",
 		\ "ts": "typescript",
 		\ "cs": "csharp",
-		\ "swift": "swift",
+		\ "swift": "swift"
 		\}
 
     let l:extentions = json_decode(json)
