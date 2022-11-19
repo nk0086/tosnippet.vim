@@ -49,7 +49,7 @@ function! ToSnippet() abort
 	endif
     endfor
 
-    let file_name = save_directory.extention./".snippet_name.".snip"   
+    let file_name = save_directory.extention."/".snippet_name.".snip"   
     " write to file from snippet
     call writefile(snippet, file_name)
 endfunction

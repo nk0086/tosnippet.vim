@@ -3,12 +3,11 @@ function! ToSnippet() abort
     if exists('g:tosnippet#save_directory')
 		let l:save_directory = g:tosnippet#save_directory
 	else
-		let l:save_directory = expand('~/.vim/snippets')
+		let l:save_directory = expand('~/.config/nvim/neosnippet-snippet/')
 	endif
 
     let file_path = expand("%")
     let file_extention = expand("%:e")
-    " read ../extentions.json
     let json = {
 		\ "py": "python",
 		\ "rb": "ruby",
@@ -24,7 +23,7 @@ function! ToSnippet() abort
 		\ "cs": "csharp",
 		\ "swift": "swift",
 		\}
-	}
+
     let l:extentions = json_decode(json)
     let l:extention = l:extentions[file_extention]
 
@@ -50,7 +49,7 @@ function! ToSnippet() abort
 	endif
     endfor
 
-    let file_name = save_directory.extention./".snippet_name.".snip"   
+    let file_name = save_directory.extention."/".snippet_name.".snip"   
     " write to file from snippet
     call writefile(snippet, file_name)
 endfunction
